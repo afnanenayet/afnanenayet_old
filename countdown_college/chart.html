@@ -1,0 +1,81 @@
+ <!DOCTYPE html>
+<head>
+	<title>College Countdown MW</title>
+	<link rel = "stylesheet" href="parentStyle.css">
+	<script src="NewChart.js" type="text/javascript"></script>
+	</head>
+	
+	<body>
+		<div class = "wrapper">
+		<div id = "title">
+		<h1 id ="h1special">
+			The MW College Countdown
+			</h1>
+			<p id = "pspecial">Class of 2015</p>
+			</hr>
+			</div>
+			<p>Everyone at Maggie Walker is going away, so we (Joseph and Afnan) thought it would be cool to create a countdown so everyone could see when their friends are leaving.</p>
+			<p>This chart displays the number of days remaining until each person in our class moves in. </p>
+			</hr>
+			<canvas id="graphCanvas" height = "2500"></canvas> <!--for the bar graph, sets dimens-->
+			</div>
+<script>
+//getting difference in days
+var dayDef = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+var initialDate = new Date(2015,01,12,0,0,0);
+var currentDate = new Date();
+var diffDays = (Math.floor((currentDate - initialDate) / (1000*60*60*24))) - 160;
+var nameString = "tyler,wilck,simmons,deglau,vinson,choi,hill,row,moore,kent,meighan,aaron,bryant,lehman rios,aigner,ashauer,chang,christopher,damaj,hammond,hobbs,isaac,keck,king alejandro,mattoon,melton,puthenpura,scafidi,smith corey,zeevi,tummala,ratliff,srivastava,kurdziel,basch,akens,dallas,dao,ebeling,erickson,fischer,ghosh,good,jones,kump joseph,kump wyatt,lee,maniar,rodgers,shaw,sims,singh,street,thomas,whelan,farsin,palazzolo,schwartzkopf,li,wood katie,greene emma,downey,auerbach,defilippo,arents,campbell,darr,enayet,gray,hubbard,king zach,kling,lott,lowell,macon,moody,ragazzi,shah,sherman,soldan,wachter,wenger,williams,woods,andrews,vissa,zhou,best,craddock,smith princess,holliday,motley,prasad,ashburn,barlow,barsanti,bhave,bridges,coder,emblidge,green galen,guinn,jewett,kapadia,kharkar,kim noah,kim eric,kuno,henneke,larson,leckie,levit,mehta,miller,o brien,ong,raper,shifflett,sholar,tang,thompson,thoms,vadlamani,walker,wang,zhang,crawford,fuhr,graham,kunka,gill,bellamy,wu,fleming,ajith,mccoy,steincamp,cox,everett,lickers,ohlsson,rucker,trapp,boyle,hawkins,kinder,bowers,hausser,philipsen,leffler,sun,wong,wood connor,farinholt,oliver,perry,sanya,hamilton,headinger,lucas,saravanan,leahy,elhai,mayo,martin,browne,canaan,han";
+var nameArray = nameString.split(',');
+var dayString ="7,9,30,40,47,50,52,53,54,54,54,56,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,59,59,59,59,59,59,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,61,61,61,61,61,61,61,62,62,63,63,63,64,64,64,64,65,65,66,66,66,66,66,66,66,67,67,67,68,68,68,68,68,68,68,69,70,71,78,85,85,89";
+var dayArray = dayString.split(',');
+var modArray = new Array();
+for (var j = 0; j < dayArray.length; j++) {
+	modArray[j] = dayArray[j] - diffDays;
+}
+var studentData = {
+	labels : nameArray,
+	datasets : [
+		{
+			fillColor : "rgba(220,220,220,0.5)",
+						strokeColor : "rgba(220,220,220,0.8)",
+						highlightFill: "rgba(220,220,220,0.75)",
+						highlightStroke: "rgba(220,220,220,1)",
+			data : modArray,
+  
+		}
+	]
+}               
+var startWithDataset =1;
+var startWithData =1;
+var graphOptions = {
+      animationStartWithDataset : startWithDataset,
+      animationStartWithData : startWithData,
+      animationSteps : 200,
+	  responsive : true,
+	  /*responsiveMinHeight : 4500,
+	  responsiveMinWidth : 1000,*/
+      canvasBorders : false,
+	  annotateDisplay : true,
+      graphTitle : "Days Remaining",
+      inGraphDataShow : true,
+	  graphMin : 0,
+	  scaleStepWidth : 200,
+	  scaleGridLinesStep : 9999,
+	  yAxisUnitSpaceAfter : 20,
+	  yAxisLeft : true,
+	  xAxisBottom : true,
+      annotateDisplay : true,
+	  inGraphDataPaddingX : 10,
+      graphTitleFontSize: 18,
+}
+</script>
+    <script>
+  
+window.onload = function() {
+      var ctx = document.getElementById("graphCanvas").getContext("2d");
+    var myHorizontalBar = new Chart(ctx).HorizontalBar(studentData, graphOptions);
+}
+    </script>
+  </body>
+</html>
