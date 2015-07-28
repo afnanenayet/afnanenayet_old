@@ -22,17 +22,20 @@
 			</div>
 <script>
 //getting difference in days
-var dayDef = 24*60*60*1000; // hours*minutes*seconds*milliseconds
 var initialDate = new Date(2015,06,27,0,0,0);
 var currentDate = new Date();
 var diffDays = (Math.floor((currentDate - initialDate) / (1000*60*60*24)));
 var nameString = "tyler,wilck,simmons,deglau,vinson,choi,hill,row,moore,kent,meighan,aaron,bryant,lehman rios,aigner,ashauer,chang,christopher,damaj,hammond,hobbs,isaac,keck,king alejandro,mattoon,melton,puthenpura,scafidi,smith corey,zeevi,tummala,ratliff,srivastava,kurdziel,basch,akens,dallas,dao,ebeling,erickson,fischer,ghosh,good,jones,kump joseph,kump wyatt,lee,maniar,rodgers,shaw,sims,singh,street,thomas,whelan,farsin,palazzolo,schwartzkopf,li,wood katie,greene emma,downey,auerbach,defilippo,arents,campbell,darr,enayet,gray,hubbard,king zach,kling,lott,lowell,macon,moody,ragazzi,shah,sherman,soldan,wachter,wenger,williams,woods,andrews,vissa,zhou,best,craddock,smith princess,holliday,motley,prasad,ashburn,barlow,barsanti,bhave,bridges,coder,emblidge,green galen,guinn,jewett,kapadia,kharkar,kim noah,kim eric,kuno,henneke,larson,leckie,levit,mehta,miller,o brien,ong,raper,shifflett,sholar,tang,thompson,thoms,vadlamani,walker,wang,zhang,crawford,fuhr,graham,kunka,gill,bellamy,wu,fleming,ajith,mccoy,steincamp,cox,everett,lickers,ohlsson,rucker,trapp,boyle,hawkins,kinder,bowers,hausser,philipsen,leffler,sun,wong,wood connor,farinholt,oliver,perry,sanya,hamilton,headinger,lucas,saravanan,leahy,elhai,mayo,martin,browne,canaan,han";
 var nameArray = nameString.split(',');
-var dayString = "0,0,0,5,12,15,17,18,19,19,19,21,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,24,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,27,27,28,28,28,29,29,29,29,30,30,31,31,31,31,31,31,31,32,32,32,33,34,35,36,37,38,39,34,35,36,43,50,50,54";
+var dayString = "0,0,0,5,12,15,17,18,19,19,19,21,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,24,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,27,27,28,28,28,29,29,29,29,30,30,31,31,31,31,31,31,31,32,32,32,33,34,34,35,35,36,36,37,38,39,43,50,50,54";
 var dayArray = dayString.split(',');
 var modArray = new Array();
 for (var j = 0; j < dayArray.length; j++) {
-	modArray[j] = dayArray[j] - diffDays;
+	var adjuster = dayArray[j] - diffDays;
+	if (adjuster < 0) {
+		modArray[j] = 0;
+	}
+	else modArray[j] = dayArray[j] - diffDays;
 }
 var studentData = {
 	labels : nameArray,
