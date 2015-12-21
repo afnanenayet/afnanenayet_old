@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--for mobile devices-->
-    <title>Minigma</title>
+    <title>Android Apps</title>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.blue-light_blue.min.css" />
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -25,6 +25,11 @@
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -33,13 +38,13 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title">Minigma</span>
+                <span class="mdl-layout-title">Android Apps</span>
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="index.html">Home</a>
                     <a class="mdl-navigation__link" href="about.html">About</a>
-                    <a class="mdl-navigation__link" href="android_apps.html">Android apps</a>
                     <a class="mdl-navigation__link" href="projects.html">Projects</a>
                 </nav>
             </div>
@@ -47,7 +52,6 @@
         <div class="mdl-layout__drawer">
             <span class="mdl-layout-title">Minigma</span>
             <nav class="mdl-navigation">
-
 
                 <a class="mdl-navigation__link" href="index.html">Home</a>
                 <a class="mdl-navigation__link" href="about.html">About</a>
@@ -92,16 +96,49 @@
                     <!--Card with basic info (first card)-->
                     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">An Enayet Endeavor</h2>
+                            <h2 class="mdl-card__title-text">Minigma</h2>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div align="left">
-                                <p>Minigma is a software development brand led by Afnan Enayet.</p>
-                                <p>This is the home for Android applications such as Minigma and Battery Informatics, as well
-                                    as other projects currently being maintained or developed by Afnan Enayet.</p>
+                                <p>Minigma is an app with an in-house encryption engine. A seed is generated based on a user
+                                    input which creates a cypher which can be used to encode/decode messages, salting is
+                                    used as well, to obfuscute the cipher. All encryption is local, requiring no internet
+                                    access, so that communications can't be intercepted in the cloud.</p>
+                                <p>The program generates a seed based on a user input (the password). This password is converted
+                                    to an integer which is used as the seed for the pseudo-random generator which manipulates
+                                    an array to create a cipher. A "standard" cipher is used to convert the characters entered
+                                    by the user into the corresponding characters in the generated cipher. This places the
+                                    entire burden of security on the password rather than the system.</p>
                             </div>
                         </div>
                     </div>
+
+                    <br/>
+
+                    <div>
+                        <!-- Buttons (div)-->
+
+                        <!--Android button-->
+                        <!-- Accent-colored raised button with ripple
+                        -->
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="https://play.google.com/store/apps/details?id=com.enayet.minigma">
+                                Android
+                            </a>
+                    
+                        <!--Windows button-->
+                         <!-- Accent-colored raised button with ripple -->
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="https://app.box.com/minigma">
+                                Windows
+                            </a>
+                       
+                        <!-- Source button -->
+               
+                            <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="https://github.com/afnanenayet/Minigma-Android">
+                                Source
+                            </a>
+                        
+                    </div>
+                    <!-- End Minigma buttons div-->
 
                     <br/>
                     <br/>
@@ -109,17 +146,45 @@
                     <!--Second card (suggestion)-->
                     <div class="card-two mdl-card mdl-shadow--2dp">
                         <div class="mdl-card__title">
-                            <h2 class="mdl-card__title-text">Suggestions</h2>
+                            <h2 class="mdl-card__title-text">Battery Informatics</h2>
                         </div>
                         <div class="mdl-card__supporting-text">
                             <div align="left">
-                                <p>Is there something you want to see on this site? I am always open to suggestions.
-                                    <a href="mailto:sitemaster@minigma.com?Subject=Website%20Suggestions" target="_top">Email me</a>                                    if you have any suggestions or critiques.
+                                <p>Battery Informatics is a utility that provides information about the battery of an Android
+                                    phone. It informs a user about the state of their battery, the amount of current flowing
+                                    in (or out), temperature, remaining capacity, and overall battery health.
                                 </p>
+                                <p>This app utilizes proper Material Design guidelines, and is compatible with any Android device
+                                    running Android 5.0 (API level 22) or above.</p>
                             </div>
+                            <br>
                         </div>
+                    </div>
+
+                    <br/>
+
+                    <div>
+                        <!-- Buttons (div)-->
+
+                        <!--Android button-->
+                       <!-- Accent-colored raised button with ripple
+                        -->
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" href="https://play.google.com/store/apps/details?id=com.enayet.powinfo">
+                                Android
+                            </a>
+                        
+
+                        <!-- Source button -->
+                       
+                            <a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="https://github.com/afnanenayet/Battery_Informatics">
+                                Source
+                            </a>
+                       
+                    </div>
+                    <!-- End Battery Informatics buttons div-->
+
+                    <br/>
         </main>
-        </div>
 </body>
 
 </html>
